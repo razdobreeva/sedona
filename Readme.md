@@ -1,7 +1,7 @@
 # Личный проект «Седона»
 
 * Студент: [Анастасия Раздобреева](https://up.htmlacademy.ru/htmlcss/24/user/200637).
-* Наставник: `Неизвестно`.
+* Наставник: [Роман Коробейников](https://htmlacademy.ru/profile/rkorobeynikov).
 
 ---
 
