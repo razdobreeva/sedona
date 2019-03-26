@@ -937,9 +937,10 @@ input[type="radio"].visually-hidden {
 /* modal */
 
 .modal {
+  display: block;
   width: 570px;
   height: 396px;
-  border: red;
+  border-color: red;
   background-color: #ffffff;
 }
 
