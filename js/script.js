@@ -41,6 +41,7 @@ search.addEventListener("click", function(evt) {
     form.offsetWidth = form.offsetWidth;
     form.classList.add("booking__error");
   } else {
+    // если значения есть в хранилище, то берем их из него
     if (isStorageSupport) {
       localStorage.setItem("checkIn", checkIn.value);
       localStorage.setItem("checkOut", checkOut.value);
