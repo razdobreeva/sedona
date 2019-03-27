@@ -89,7 +89,31 @@
           <h2 class="visually-hidden">Поиск гостиницы в Седоне</h2>
           <p class="booking__title">Заинтересовались?</p>
           <p class="booking__text">Укажите предполагаемые даты поездки,<br> и мы покажем вам лучшие предложения гостиниц в Седоне</p>
-          <a class="button booking__button" href="booking.html">Поиск гостиницы в Седоне</a>
+          <a class="booking__button" href="booking.html">Поиск гостиницы в Седоне</a>
+          <form class="booking__form booking__form--show" method="post" action="https://echo.htmlacademy.ru">
+            <p class="booking__check-in">
+              <label for="check-in-date">Дата заезда:</label>
+              <input class="asd" id="check-in-date" type="text" name="check-in" value="24 апреля 2017">
+              <button class="booking__calendar-button" type="button">
+                <span class="visually-hidden">Выбрать дату заезда</span>
+              </button>
+            </p>
+            <p class="booking__check-out">
+              <label for="check-out-date">Дата выезда:</label>
+              <input id="check-out-date" type="text" name="check-out" value="4 июля 2017">
+              <button class="booking__calendar-button" type="button">
+                <span class="visually-hidden">Выбрать дату выезда</span>
+                <!--<img src="img/calendar.svg" width="21" height="22" alt="Календарь для выбора даты выезда">-->
+              </button>
+            </p>
+            <p class="booking__number">
+              <label for="adults-number">Взрослые:</label>
+              <input id="adults-number" type="number" name="adults" value="2">
+              <label for="children-number">Дети:</label>
+              <input id="children-number" type="number" name="children" value="0">
+            </p>
+            <button class="booking__search-button" type="submit">Найти</button>
+          </form>
         </section>
 
         <section class="map">
@@ -118,7 +142,7 @@
         </ul>
         <p class="footer__copyright">
           <span>Website by</span>
-          <a class="footer__logo-htmlacademy" href="https://htmlacademy.ru">
+          <a class="footer__logo-htmlacademy" href="https://htmlacademy.ru/intensive/htmlcss">
             <!--<img src="img/logo-htmlacademy.svg" width="115" height="41" alt="Логотип HTML Academy">-->
             <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="115" height="41" viewBox="0 0 108.08 36.85" alt="Логотип HTML Academy">
               <title>logo-htmlacademy-small1</title>
@@ -128,35 +152,6 @@
           </a>
         </p>
       </footer>
-
-      <section class="modal">
-        <h2 class="visually-hidden">Поиск жилья в Седоне</h2>
-
-        <form class="modal__form" method="post" action="https://htmlacademy.ru/intensive/htmlcss">
-          <p>
-            <label for="check-in-date">Дата заезда:</label>
-            <input class="asd" id="check-in-date" type="text" name="check-in" value="24 апреля 2017">
-            <button class="modal__calendar-button" type="button">
-              <span class="visually-hidden">Выбрать дату заезда</span>
-            </button>
-          </p>
-          <p>
-            <label for="check-out-date">Дата выезда:</label>
-            <input id="check-out-date" type="text" name="check-out" value="4 июля 2017">
-            <button class="modal__calendar-button" type="button">
-              <span class="visually-hidden">Выбрать дату выезда</span>
-              <!--<img src="img/calendar.svg" width="21" height="22" alt="Календарь для выбора даты выезда">-->
-            </button>
-          </p>
-          <p>
-            <label for="adults-number">Взрослые:</label>
-            <input id="adults-number" type="number" name="adults" value="2">
-            <label for="children-number">Дети:</label>
-            <input id="children-number" type="number" name="children" value="0">
-          </p>
-          <button class="button modal__button" type="submit">Найти</button>
-        </form>
-      </section>
     </div>
 
     <script src="js/script.js"></script>

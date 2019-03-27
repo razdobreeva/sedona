@@ -270,25 +270,8 @@ input[type="radio"].visually-hidden {
   color: #333333;
 }
 
-.map {
-  position: relative;
-}
-
-.map p {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  margin: 0;
-}
-
-.map iframe {
-  position: relative;
-  z-index: 2;
-  border: none;
-}
-
 .booking {
+  position: relative;
   background-color: #ffffff;
 }
 
@@ -318,11 +301,10 @@ input[type="radio"].visually-hidden {
    line-height: 26px;
    font-weight: 700;
    text-align: center;
-   vertical-align: top;
    word-wrap: break-word;
    color: #ffffff;
-   cursor: pointer;
    background-color: #766357;
+   cursor: pointer;
    border: none;
  }
 
@@ -334,6 +316,149 @@ input[type="radio"].visually-hidden {
 .booking__button:active {
   color: #928a85;
   background-color: #503e33;
+}
+
+/* modal */
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-2000px);
+  }
+
+  70% {
+    transform: translateY(30px);
+  }
+
+  90% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-10px);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+
+.booking__form {
+  position: absolute;
+  left: 315px;
+  z-index: 3;
+  display: none;
+  padding: 55px;
+  width: 460px;
+  background-color: #ffffff;
+}
+
+.booking__form--show {
+  display: block;
+  animation: bounce 0.6s;
+}
+
+.booking__check-in,
+.booking__check-out {
+  margin-bottom: 30px;
+}
+
+.booking__number {
+  padding-bottom: 55px;
+}
+
+.booking__form label {
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.booking__form input {
+  font-family: "PT Sans", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #000000;
+  background-color: #f2f2f2;
+  border: none;
+}
+
+.booking__form input:hover {
+  background-color: #ebebeb;
+}
+
+.booking__form input:focus {
+  background-color: #ffffff;
+  outline-color: #e5e5e5;
+}
+
+.booking__search-button {
+  display: block;
+  width: 460px;
+  margin: 0 auto;
+  padding: 14px 30px;
+  font: inherit;
+  font-size: 21px;
+  line-height: 26px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  word-wrap: break-word;
+  color: #ffffff;
+  background-color: #81b3d2;
+  cursor: pointer;
+  border: none;
+}
+
+.booking__search-button:hover,
+.booking__search-button:focus {
+  background-color: #669ec0;
+}
+
+.booking__search-button:active {
+  color: #88b6d1;
+  background-color: #5496bd;
+}
+
+.booking__error {
+  animation: shake 0.6s;
+}
+
+.map {
+  position: relative;
+}
+
+.map p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  margin: 0;
+}
+
+.map iframe {
+  position: relative;
+  z-index: 2;
+  border: none;
 }
 
 /* hotels */
@@ -540,12 +665,12 @@ input[type="radio"].visually-hidden {
   font-weight: 400;
   text-align: center;
   word-wrap: break-word;
-  color: #ffffff;
   text-transform: uppercase;
+  color: #ffffff;
   background: transparent;
+  cursor: pointer;
   border: 2px solid #ffffff;
   border-radius: 2px;
-  cursor: pointer;
 }
 
 .filter__button:hover,
@@ -762,8 +887,8 @@ input[type="radio"].visually-hidden {
   vertical-align: top;
   word-wrap: break-word;
   color: #ffffff;
-  cursor: pointer;
   background-color: #81b3d2;
+  cursor: pointer;
   border: none;
 }
 
@@ -789,8 +914,8 @@ input[type="radio"].visually-hidden {
   vertical-align: top;
   word-wrap: break-word;
   color: #ffffff;
-  cursor: pointer;
   background-color: #766357;
+  cursor: pointer;
   border: none;
 }
 
@@ -834,12 +959,18 @@ input[type="radio"].visually-hidden {
 .footer {
   display: flex;
   flex-direction: row;
+  /*align-items: center;*/
+  /*min-height: 60px;*/
+  padding-top: 30px;
+  padding-bottom: 30px;
   background-color: #ffffff;
   opacity: 0.9;
 }
 
 .footer__hashtag {
   width: 400px;
+  margin: 0;
+  padding: 0;
   font-size: 21px;
   line-height: 26px;
   font-weight: 700;
@@ -874,6 +1005,11 @@ input[type="radio"].visually-hidden {
 
 .footer__button:active {
   background-color: #5496bd;
+}
+
+.footer__button--twitter,
+.footer__button--facebook {
+  margin-right: 5px;
 }
 
 .footer__button::after {
@@ -932,61 +1068,4 @@ input[type="radio"].visually-hidden {
 
 .footer__logo-htmlacademy:active path {
   fill: #bdbbbc;
-}
-
-/* modal */
-
-.modal {
-  display: block;
-  width: 570px;
-  height: 396px;
-  border-color: red;
-  background-color: #ffffff;
-}
-
-.modal__form label {
-  font-size: 14px;
-  line-height: 26px;
-  font-weight: 700;
-  color: #000000;
-}
-
-.modal__form input {
-  font-family: "PT Sans", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 26px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #000000;
-  background-color: #f2f2f2;
-  border: none;
-}
-
-.modal__form input:hover {
-  background-color: #ebebeb;
-}
-
-.modal__form input:focus {
-  background-color: #ffffff;
-  outline-color: #e5e5e5;
-}
-
-.modal__button {
-  font-size: 21px;
-  line-height: 26px;
-  font-weight: 700;
-  color: #ffffff;
-  background-color: #81b3d2;
-  border: none;
-  cursor: pointer;
-}
-
-.modal__button:hover,
-.modal__button:focus {
-  background-color: #669ec0;
-}
-
-.modal__button:active {
-  color: #88b6d1;
-  background-color: #5496bd;
 }

@@ -1,59 +1,62 @@
-var link = document.querySelector(".login-link");
+var link = document.querySelector(".booking__button");
+var form = document.querySelector(".booking__form");
 
-var popup = document.querySelector(".modal-login");
-var close = popup.querySelector(".modal-close");
-
-var form = popup.querySelector("form");
-var login = popup.querySelector("[name=login]");
-var password = popup.querySelector("[name=password]");
+var checkIn = form.querySelector("[name=check-in]");
+var checkOut = form.querySelector("[name=check-out]");
+var adults = form.querySelector("[name=adults]");
+var children = form.querySelector("[name=children]");
+var search = form.querySelector(".booking__search-button");
 
 var isStorageSupport = true;
 var storage = "";
 
+// по умолчанию форма поиска должна быть закрыта
+form.classList.remove("booking__form--show");
 
 try {
-  storage = localStorage.getItem("login");
-} catch (err) {
-  isStorageSupport = false;
-}
+    storage = localStorage.getItem("checkIn");
+    storage = localStorage.getItem("checkOut");
+    storage = localStorage.getItem("adults");
+    storage = localStorage.getItem("children");
+  } catch (err) {
+    isStorageSupport = false;
+  }
 
+// ловим событие клика по кнопке "Поиск гостиницы в Седоне"
 link.addEventListener("click", function (evt) {
+  // отменим стандартное действие ссылки при нажатии на неё
   evt.preventDefault();
-  popup.classList.add("modal-show");
-
-  if (storage) {
-    login.value = storage;
-    password.focus();
-  } else {
-    login.focus();
+  // с помощью метода classList.toggle переключаем этот класс по клику на ссылку
+  form.classList.toggle("booking__form--show");
+  if (!form.classList.contains("booking__form--show")) {
+    form.classList.remove("booking__error");
   }
 });
 
-close.addEventListener("click", function (evt) {
-  evt.preventDefault();
-  popup.classList.remove("modal-show");
-  popup.classList.remove("modal-error");
-});
-
-form.addEventListener("submit", function (evt) {
-  if (!login.value || !password.value) {
+search.addEventListener("click", function(evt) {
+  if (!checkIn.value || !checkOut.value || !adults.value || !children.value) {
     evt.preventDefault();
-    popup.classList.remove("modal-error");
-    popup.offsetWidth = popup.offsetWidth;
-    popup.classList.add("modal-error");
+    // небольшой хак, чтобы анимация ошибки отрабатывала несколько раз, если форма не валидна
+    form.classList.remove("booking__error");
+    form.offsetWidth = form.offsetWidth;
+    form.classList.add("booking__error");
   } else {
     if (isStorageSupport) {
-      localStorage.setItem("login", login.value);
+      localStorage.setItem("checkIn", checkIn.value);
+      localStorage.setItem("checkOut", checkOut.value);
+      localStorage.setItem("adults", adults.value);
+      localStorage.setItem("children", children.value);
     }
   }
 });
 
+// закрываем модальное окно при нажатии ESC
 window.addEventListener("keydown", function (evt) {
   if (evt.keyCode === 27) {
     evt.preventDefault();
-    if (popup.classList.contains("modal-show")) {
-      popup.classList.remove("modal-show");
-      popup.classList.remove("modal-error");
+    if (form.classList.contains("booking__form--show")) {
+      form.classList.remove("booking__form--show");
+      form.classList.remove("booking__error");
     }
   }
 });
